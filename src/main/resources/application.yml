@@ -1,0 +1,7 @@
+spring:
+  profiles:
+#    active: dev
+    active: test
+mybatis:
+  type-aliases-package: com.example.springboot.entity
+  mapper-locations: classpath:/mapper/*.xml       #必须要有该配置   格式是 编译后的    mapper.xml所在的文件夹 / *.xml

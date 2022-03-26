@@ -1,0 +1,16 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /bluo
+index-html: cmd /c start http://localhost:8081/bluo/hello           #index 界面  用来测试获取值
+loginuser:
+  name: bluo
+  pwd: 1hbl3qt.
+spring:
+  datasource:
+    #driver-class-name: oracle.jdbc.driver.OracleDriver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://111.229.178.45:3306/mysql
+    username: root
+    password: 123456
+

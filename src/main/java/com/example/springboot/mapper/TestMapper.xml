@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.springboot.dao.TestMapper">
+
+    <select id="selectTest" resultType="test">
+        select * from test limit 20
+        <!--            使用 #{} 来引入值可以避免sql注入 因为#和 PreparedStatement 一样都会在数据库预编译然后再带人值
+        而${}是先带人值在到数据库编译所以存在sql注入风险  但是有些情况不得不使用${} 如 order by ${column_name} 使用#{} 预编译无法通过    -->
+    </select>
+</mapper>
