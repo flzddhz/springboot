@@ -94,7 +94,7 @@ public class HelloController {
     @ExceptionHandler
     public String doError(Exception e) throws Exception {
         e.printStackTrace();
-        return "Error 程序出错了！  请联系管理员";
+        return "Error 程序出错了！   请联系管理员";
     }
 
     @GetMapping("login")
