@@ -2,7 +2,8 @@ server:
   port: 8082
   servlet:
     context-path: /sxiao
-index-html: cmd /c start http://localhost:8082/sxiao/main/index           #index 界面  用来测试获取值
+#index-html: cmd /c start http://localhost:8082/sxiao/main/index           #index 界面  用来测试获取值
+index-html: cmd /c start http://localhost:8082/sxiao/pic/xhb           #index 界面  用来测试获取值
 loginuser:
   name: sxiao
   pwd: 1hbl3qt.
