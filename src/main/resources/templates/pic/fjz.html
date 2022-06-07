@@ -1,12 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.Thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>fjz</title>
+    <title>Title</title>
     <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
     <script th:src="@{/layui/layui.js}"></script>
 </head>
 <body>
-    我是风景照
+<script type="text/javascript">
+    function previewImg(obj) {
+        var img = new Image();
+        img.src = obj.src;
+        var height = img.height
+        var width = img.width;
+        if (height*1 > width*1){
+            var heightshow = 900; //获取图片高度
+            var widthshow = 750; //获取图片宽度
+        }else{
+            var heightshow = 750; //获取图片高度
+            var widthshow = 1100; //获取图片宽度
+        }
+        var imgHtml = "<img class='cc1' src='" + obj.src + "'/>";
+        //弹出层
+        if(height*1 > width*1){
+            layer.open({
+                type: 1,
+                // shade: 1,
+                offset: 'auto',
+                area: [widthshow + 'px', heightshow + 'px'],
+                shadeClose: true,//点击外围关闭弹窗
+                scrollbar: false,//不现实滚动条
+                title: "图片预览", //不显示标题
+                content: imgHtml, //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+                cancel: function () {
+                    //layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', { time: 5000, icon: 6 });
+                }
+            });
+        }else{
+            layer.open({
+                type: 1,
+                // shade: 1,
+                offset: 'auto',
+                // area: [widthshow + 'px', heightshow + 'px'],
+                shadeClose: true,//点击外围关闭弹窗
+                scrollbar: false,//不现实滚动条
+                title: "图片预览", //不显示标题
+                content: imgHtml, //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+                cancel: function () {
+                    //layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', { time: 5000, icon: 6 });
+                }
+            });
+        }
+
+    }
+
+    //
+    // //固定预览图片大小
+    // //500 * 500
+    //
+    // function previewImg(obj) {
+    //     var img = new Image();
+    //     img.src = obj.src;
+    //     var imgHtml = "<img src='" + obj.src + "' width='500px' height='500px'/>";
+    //     //弹出层
+    //     layer.open({
+    //         type: 1,
+    //         shade: 0.8,
+    //         offset: 'auto',
+    //         area: [500 + 'px', 550 + 'px'],
+    //         shadeClose: true,
+    //         scrollbar: false,
+    //         title: "图片预览", //不显示标题
+    //         content: imgHtml, //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+    //         cancel: function () {
+    //         //layer.msg('捕获就是从页面已经存在的元素上，包裹layer的结构', { time: 5000, icon: 6 });
+    //         }
+    //     });
+    // }
+    function test() {
+        alert(1);
+    }
+</script>
+<style>
+    .cc {
+        max-height: 220px;
+        max-width: 600px;
+    }
+
+    .cc1 {
+        height: 100%;
+        width: 100%;
+    }
+    div{
+        display: flex;
+        margin: 2px;
+        float: left;
+    }
+</style>
+
+<!--<img th:src="@{http://111.229.178.45/xhb/IMG_0166.JPG}" alt="lll" class="layui-upload-img cc"-->
+<!--     th:onclick="previewImg(this)">-->
+<div th:each="pic,infoStat : ${fjzlist}">
+    <img th:src="@{'http://111.229.178.45/fjz/' + ${pic.filename}}" alt="lll" class="layui-upload-img cc"
+         th:onclick="previewImg(this)">
+</div>
+<!--<img th:each="pic,infoStat : ${xhblist}"  th:src="@{'http://111.229.178.45/xhb/' + ${pic.filename}}" alt="lll" class="layui-upload-img cc" th:onclick="previewImg(this)">-->
+<p onclick="test()">我不是小伙伴</p>
 </body>
 </html>
